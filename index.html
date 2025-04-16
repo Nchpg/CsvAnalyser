@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Importer and Filter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alasql/4.0.0/alasql.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>CSV Importer and Filter</h1>
+        
+        <div class="import-section">
+            <h2>Import CSV</h2>
+            <input type="file" id="csvFile" accept=".csv">
+            <button id="importBtn">Import</button>
+            <div class="loader" id="importLoader"></div>
+            <p id="importStatus"></p>
+        </div>
+        
+        <div class="filter-section" id="filterSection" style="display: none;">
+            <h2>Filter Data</h2>
+            
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-tab="basic">Basic Filter</button>
+                <button class="filter-tab" data-tab="sql">SQL Filter</button>
+            </div>
+            
+            <div class="tab-content active" id="basic-tab">
+                <div id="filterControls">
+                    <!-- Filter controls will be dynamically generated here -->
+                </div>
+                <button id="applyFiltersBtn">Apply Filters</button>
+                <button id="resetFiltersBtn">Reset Filters</button>
+            </div>
+            
+            <div class="tab-content" id="sql-tab">
+                <p>Enter SQL-like query to filter data:</p>
+                <textarea id="sqlQuery" rows="4" style="width: 100%;" placeholder="Example: SELECT * FROM ? WHERE column > value"></textarea>
+                <button id="executeSqlBtn">Execute Query</button>
+            </div>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Results</h2>
+            <p id="resultStats"></p>
+            
+            <div class="export-options">
+                <button id="exportCsvBtn">Export as CSV</button>
+                <button id="exportJsonBtn">Export as JSON</button>
+            </div>
+            
+            <div id="tableContainer" style="overflow-x: auto;">
+                <!-- Table will be dynamically generated here -->
+            </div>
+            
+            <div id="pagination">
+                <!-- Pagination controls will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
