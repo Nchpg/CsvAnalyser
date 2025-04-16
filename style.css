@@ -1,129 +1,258 @@
+/* Add this for Clear Button */
+.clear-filter-btn {
+  background-color: #f44336; /* Red color */
+  color: white;
+  padding: 5px 10px;
+  margin-left: 10px; /* Space before the button */
+  height: 36px; /* Match other controls */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.clear-filter-btn:hover {
+  background-color: #da190b;
+}
+
+
+/* --- Previous additions --- */
+.filter-type-select {
+  margin-left: 5px;
+  margin-right: 10px;
+  padding: 5px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.filter-controls-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-grow: 1;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-weight: bold;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filter-controls-container .filter-operator {
+   height: 36px;
+}
+
+.filter-controls-container .input-wrapper {
+  align-items: center;
+}
+.filter-controls-container .input-wrapper input {
+   height: 36px;
+}
+
+/* --- Original CSS --- */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f5f5f5;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 20px;
+background-color: #f5f5f5;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+max-width: 1200px;
+margin: 0 auto;
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
-  text-align: center;
+color: #333;
+text-align: center;
 }
 .import-section,
 .filter-section,
 .results-section {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #ddd;
+border-radius: 5px;
 }
 .import-section {
-  background-color: #e8f4ff;
+background-color: #e8f4ff;
 }
 .filter-section {
-  background-color: #fff8e8;
+background-color: #fff8e8;
 }
 .results-section {
-  background-color: #f0fff0;
+background-color: #f0fff0;
 }
 input,
 select,
 button,
 textarea {
-  padding: 8px;
-  margin: 5px 0;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+padding: 8px;
+margin: 5px 0;
+border-radius: 4px;
+border: 1px solid #ccc;
+box-sizing: border-box;
 }
+/* General Button Style (overridden by specific buttons like clear/pagination active) */
 button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+background-color: #4caf50; /* Green for general actions */
+color: white;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
 }
 button:hover {
-  background-color: #45a049;
+background-color: #45a049;
 }
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 15px;
+border-collapse: collapse;
+width: 100%;
+margin-top: 15px;
 }
 th,
 td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+word-break: break-word;
 }
 th {
-  background-color: #f2f2f2;
-  cursor: pointer;
+background-color: #f2f2f2;
+cursor: pointer;
+white-space: nowrap;
 }
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+background-color: #f9f9f9;
 }
+
+/* Filter Tabs */
 .filter-tabs {
-  display: flex;
-  margin-bottom: 10px;
+display: flex;
+margin-bottom: 10px;
 }
 .filter-tab {
-  padding: 8px 15px;
-  cursor: pointer;
-  background-color: #999;
-  border: none;
-  margin-right: 5px;
-  border-radius: 4px 4px 0 0;
+padding: 8px 15px;
+cursor: pointer;
+background-color: #999; /* Inactive tab */
+color: white;
+border: none;
+margin-right: 5px;
+border-radius: 4px 4px 0 0;
 }
 .filter-tab.active {
-  background-color: #fff8e8;
-  color: #333;
-  border: 1px solid #ddd;
-  border-bottom: none;
+background-color: #fff8e8; /* Match filter section bg */
+color: #333;
+border: 1px solid #ddd;
+border-bottom: none;
 }
 .tab-content {
-  display: none;
+display: none;
+padding: 10px;
+border: 1px solid #ddd;
+border-top: none;
+border-radius: 0 0 5px 5px;
 }
 .tab-content.active {
-  display: block;
+display: block;
 }
-.export-options {
-  margin-top: 15px;
+
+/* Basic Filter Controls */
+.filter-operator {
+  flex-shrink: 0;
+}
+
+.input-wrapper {
   display: flex;
-  gap: 10px;
+  gap: 5px;
+  flex-grow: 1;
 }
+
+.filter-input {
+  flex-grow: 1;
+  min-width: 100px;
+}
+
+/* SQL Filter */
+#sqlQuery {
+  width: 100%;
+  font-family: monospace;
+}
+
+/* Results Section */
+.export-options {
+margin-top: 15px;
+display: flex;
+gap: 10px;
+}
+
+#tableContainer {
+  overflow-x: auto;
+}
+
 #pagination {
-  margin-top: 15px;
-  text-align: center;
+margin-top: 15px;
+text-align: center;
 }
+
 #pagination button {
-  margin: 0 5px;
-  padding: 5px 10px;
+margin: 0 2px;
+padding: 5px 10px;
+background-color: #ddd; /* Default pagination button color */
+color: #333;
 }
+#pagination button:hover {
+  background-color: #ccc;
+}
+#pagination button:disabled {
+  background-color: #f0f0f0;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+#pagination button.active {
+  background-color: #4CAF50; /* Active page button color */
+  color: white;
+  font-weight: bold;
+  border: 1px solid #45a049;
+}
+
+#pagination span { /* Ellipsis */
+  padding: 0 5px;
+  color: #666;
+}
+
+
+/* Loader */
 .loader {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 2s linear infinite;
-  margin: 20px auto;
-  display: none;
+border: 5px solid #f3f3f3;
+border-top: 5px solid #3498db;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+animation: spin 1.5s linear infinite;
+margin: 20px auto;
+display: none;
 }
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
 }
