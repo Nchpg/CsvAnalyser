@@ -29,7 +29,19 @@
              <div class="tab-content active" id="basic-tab">
                  <div id="filterControls"></div>
                  <button id="applyFiltersBtn">Appliquer les Filtres</button>
-                 <button id="resetFiltersBtn">Réinitialiser les Filtres</button>
+                 <!-- Renamed Reset Button -->
+                 <button id="resetFiltersBtn">Réinitialiser Filtres & Groupes</button>
+
+                 <!-- Group By Section -->
+                 <div id="groupBySection" style="display: none;">
+                     <h3>Grouper par :</h3>
+                     <div id="groupByRulesContainer"></div>
+                     <button id="addGroupByRuleBtn" type="button">+ Ajouter règle</button>
+                     <button id="applyGroupByBtn" type="button">Appliquer Groupes</button>
+                     <!-- New Reset Grouping Button -->
+                     <button id="resetGroupByBtn" type="button" style="margin-left: 10px;">Retirer Groupes</button>
+                 </div>
+
              </div>
              <div class="tab-content" id="sql-tab">
                  <p>Entrez une requête de type SQL pour filtrer les données :</p>
@@ -38,12 +50,13 @@
              </div>
         </div>
 
+        <!-- Results Section -->
         <div class="results-section" id="resultsSection" style="display: none;">
             <h2>Résultats</h2>
             <div class="results-header">
                 <p id="resultStats"></p>
                 <div class="pagination-controls">
-                     <label for="rowsPerPageSelect">Lignes par page:</label> <!-- French -->
+                     <label for="rowsPerPageSelect">Lignes par page:</label>
                      <select id="rowsPerPageSelect"></select> 
                      <div id="pagination"></div>
                 </div>
@@ -55,7 +68,6 @@
             <div id="tableContainer" style="overflow-x: auto;">
                  <!-- Le tableau sera généré dynamiquement ici -->
             </div>
-            <!-- Moved pagination controls up -->
         </div>
     </div>
 
@@ -63,10 +75,11 @@
     <script src="utils.js"></script>
     <script src="import.js"></script>
     <script src="filter.js"></script>
-    <script src="sort.js"></script>
+    <!-- Removed sort.js as logic is now in display.js -->
     <script src="sql.js"></script>
     <script src="display.js"></script>
     <script src="export.js"></script>
+    <script src="group.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

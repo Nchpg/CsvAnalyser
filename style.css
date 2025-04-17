@@ -256,3 +256,21 @@ display: none;
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
+
+.group-by-rule {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.remove-group-rule-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.remove-group-rule-btn:hover {
+  background-color: #da190b;
+}
